@@ -3,7 +3,10 @@ const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
+const Mouse = Matter.Mouse;
 const Constraint = Matter.Constraint;
+const MouseConstraint = Matter.MouseConstraint;
+var mConstraint;
 var bgI;
 function preload()
 {
@@ -16,6 +19,13 @@ function setup() {
 	
 	engine = Engine.create();
 	world = engine.world;
+	
+	let canvasmouse = Mouse.create(canvas.elt);
+   canvasmouse.pixelRatio = pixelDensity();
+   let options ={
+       mouse:canvasmouse
+   };
+   mConstraint = MouseConstraint.create(engine, options);
   var bobDiameter = 60;
 	var posX = width/2;
 	var posY = height/2+ 200;
@@ -62,8 +72,5 @@ function draw() {
 
   drawSprites();
 }
-function mouseDragged(){
-	Matter.Body.setPosition(bob1.body,{x:mouseX,y:mouseY})
-	
-	}
+
 
