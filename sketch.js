@@ -26,6 +26,7 @@ function setup() {
        mouse:canvasmouse
    };
    mConstraint = MouseConstraint.create(engine, options);
+	World.add(world,mConstraint);
   var bobDiameter = 60;
 	var posX = width/2;
 	var posY = height/2+ 200;
