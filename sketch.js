@@ -47,13 +47,15 @@ function setup() {
   sling5= new Rope(bob5.body,ground.body,100,0);
   sling6= new Rope(bob6.body,ground.body,100*2,0);
   sling7= new Rope(bob7.body,ground.body,100*3,0);
-	Engine.run(engine);
+	
   
 }
 
 
 function draw() {
   rectMode(CENTER);
+	
+Engine.update(engine);
   background(bgI);
   ground.display();
   bob1.display();
